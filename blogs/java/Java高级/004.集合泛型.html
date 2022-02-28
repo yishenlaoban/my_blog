@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>集合泛型 | 升升狠のBlog</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/my_blog/favicon.ico">
+    <meta name="description" content="看清生活的本质，依旧热爱生活 。">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/my_blog/assets/css/0.styles.ad4f4074.css" as="style"><link rel="preload" href="/my_blog/assets/js/app.d66f9911.js" as="script"><link rel="preload" href="/my_blog/assets/js/3.3346af26.js" as="script"><link rel="preload" href="/my_blog/assets/js/1.d09d735b.js" as="script"><link rel="preload" href="/my_blog/assets/js/79.7cc4f1ee.js" as="script"><link rel="prefetch" href="/my_blog/assets/js/10.973da536.js"><link rel="prefetch" href="/my_blog/assets/js/100.51d0121f.js"><link rel="prefetch" href="/my_blog/assets/js/101.9462c256.js"><link rel="prefetch" href="/my_blog/assets/js/102.c23a2041.js"><link rel="prefetch" href="/my_blog/assets/js/103.218464ab.js"><link rel="prefetch" href="/my_blog/assets/js/104.2a33bc3a.js"><link rel="prefetch" href="/my_blog/assets/js/105.76b52130.js"><link rel="prefetch" href="/my_blog/assets/js/106.601273f6.js"><link rel="prefetch" href="/my_blog/assets/js/107.c4f644f2.js"><link rel="prefetch" href="/my_blog/assets/js/108.cb5388c8.js"><link rel="prefetch" href="/my_blog/assets/js/11.ddf481c0.js"><link rel="prefetch" href="/my_blog/assets/js/12.8df36d81.js"><link rel="prefetch" href="/my_blog/assets/js/13.bc74697c.js"><link rel="prefetch" href="/my_blog/assets/js/14.f4f7ba5d.js"><link rel="prefetch" href="/my_blog/assets/js/15.3cc292bd.js"><link rel="prefetch" href="/my_blog/assets/js/16.11792e42.js"><link rel="prefetch" href="/my_blog/assets/js/17.ec0bf579.js"><link rel="prefetch" href="/my_blog/assets/js/18.c1bd10d0.js"><link rel="prefetch" href="/my_blog/assets/js/19.cbbe8942.js"><link rel="prefetch" href="/my_blog/assets/js/20.e6c8c0e1.js"><link rel="prefetch" href="/my_blog/assets/js/21.9906c5f4.js"><link rel="prefetch" href="/my_blog/assets/js/22.09158481.js"><link rel="prefetch" href="/my_blog/assets/js/23.34bd6d75.js"><link rel="prefetch" href="/my_blog/assets/js/24.7fba2561.js"><link rel="prefetch" href="/my_blog/assets/js/25.d690375d.js"><link rel="prefetch" href="/my_blog/assets/js/26.b88b031f.js"><link rel="prefetch" href="/my_blog/assets/js/27.004a85c6.js"><link rel="prefetch" href="/my_blog/assets/js/28.2e30550c.js"><link rel="prefetch" href="/my_blog/assets/js/29.5296302d.js"><link rel="prefetch" href="/my_blog/assets/js/30.c6264573.js"><link rel="prefetch" href="/my_blog/assets/js/31.24b2f39b.js"><link rel="prefetch" href="/my_blog/assets/js/32.49a6a825.js"><link rel="prefetch" href="/my_blog/assets/js/33.9a58cb48.js"><link rel="prefetch" href="/my_blog/assets/js/34.5a77297c.js"><link rel="prefetch" href="/my_blog/assets/js/35.f5f9d791.js"><link rel="prefetch" href="/my_blog/assets/js/36.791d2076.js"><link rel="prefetch" href="/my_blog/assets/js/37.3e4b286c.js"><link rel="prefetch" href="/my_blog/assets/js/38.15c74588.js"><link rel="prefetch" href="/my_blog/assets/js/39.8876c241.js"><link rel="prefetch" href="/my_blog/assets/js/4.49a80f60.js"><link rel="prefetch" href="/my_blog/assets/js/40.5ce71837.js"><link rel="prefetch" href="/my_blog/assets/js/41.82dee87c.js"><link rel="prefetch" href="/my_blog/assets/js/42.f1e157ed.js"><link rel="prefetch" href="/my_blog/assets/js/43.44c063c6.js"><link rel="prefetch" href="/my_blog/assets/js/44.514f0b61.js"><link rel="prefetch" href="/my_blog/assets/js/45.18a80f87.js"><link rel="prefetch" href="/my_blog/assets/js/46.9b31d7e5.js"><link rel="prefetch" href="/my_blog/assets/js/47.04f3bfb2.js"><link rel="prefetch" href="/my_blog/assets/js/48.b779291a.js"><link rel="prefetch" href="/my_blog/assets/js/49.e5c06845.js"><link rel="prefetch" href="/my_blog/assets/js/5.238aee53.js"><link rel="prefetch" href="/my_blog/assets/js/50.42c0410a.js"><link rel="prefetch" href="/my_blog/assets/js/51.84e413a7.js"><link rel="prefetch" href="/my_blog/assets/js/52.33ef70cb.js"><link rel="prefetch" href="/my_blog/assets/js/53.5211a3ec.js"><link rel="prefetch" href="/my_blog/assets/js/54.252db2b2.js"><link rel="prefetch" href="/my_blog/assets/js/55.73600bea.js"><link rel="prefetch" href="/my_blog/assets/js/56.0c69aece.js"><link rel="prefetch" href="/my_blog/assets/js/57.e3528cd5.js"><link rel="prefetch" href="/my_blog/assets/js/58.c9ac8b01.js"><link rel="prefetch" href="/my_blog/assets/js/59.56100e7a.js"><link rel="prefetch" href="/my_blog/assets/js/6.5254465b.js"><link rel="prefetch" href="/my_blog/assets/js/60.baa4b814.js"><link rel="prefetch" href="/my_blog/assets/js/61.ca5f1b24.js"><link rel="prefetch" href="/my_blog/assets/js/62.176a70e8.js"><link rel="prefetch" href="/my_blog/assets/js/63.8dc0b3ac.js"><link rel="prefetch" href="/my_blog/assets/js/64.f97a0293.js"><link rel="prefetch" href="/my_blog/assets/js/65.5caeebc3.js"><link rel="prefetch" href="/my_blog/assets/js/66.5f9eeea3.js"><link rel="prefetch" href="/my_blog/assets/js/67.fa522a0a.js"><link rel="prefetch" href="/my_blog/assets/js/68.7c520e65.js"><link rel="prefetch" href="/my_blog/assets/js/69.fffe5f00.js"><link rel="prefetch" href="/my_blog/assets/js/7.8f01f368.js"><link rel="prefetch" href="/my_blog/assets/js/70.7ffc247b.js"><link rel="prefetch" href="/my_blog/assets/js/71.3f05efd3.js"><link rel="prefetch" href="/my_blog/assets/js/72.fa1b1fef.js"><link rel="prefetch" href="/my_blog/assets/js/73.3fd2f97d.js"><link rel="prefetch" href="/my_blog/assets/js/74.09a345da.js"><link rel="prefetch" href="/my_blog/assets/js/75.83d1b459.js"><link rel="prefetch" href="/my_blog/assets/js/76.8034765f.js"><link rel="prefetch" href="/my_blog/assets/js/77.1d610963.js"><link rel="prefetch" href="/my_blog/assets/js/78.11b257ee.js"><link rel="prefetch" href="/my_blog/assets/js/8.fd891df8.js"><link rel="prefetch" href="/my_blog/assets/js/80.9a0670df.js"><link rel="prefetch" href="/my_blog/assets/js/81.f7dd2715.js"><link rel="prefetch" href="/my_blog/assets/js/82.5ea7b20b.js"><link rel="prefetch" href="/my_blog/assets/js/83.7c555012.js"><link rel="prefetch" href="/my_blog/assets/js/84.2c2439fc.js"><link rel="prefetch" href="/my_blog/assets/js/85.40481a86.js"><link rel="prefetch" href="/my_blog/assets/js/86.78451764.js"><link rel="prefetch" href="/my_blog/assets/js/87.67e505d5.js"><link rel="prefetch" href="/my_blog/assets/js/88.fa45a93d.js"><link rel="prefetch" href="/my_blog/assets/js/89.ef99f0e5.js"><link rel="prefetch" href="/my_blog/assets/js/9.9950b82a.js"><link rel="prefetch" href="/my_blog/assets/js/90.df0fbb5b.js"><link rel="prefetch" href="/my_blog/assets/js/91.cd54d0ef.js"><link rel="prefetch" href="/my_blog/assets/js/92.a8e99319.js"><link rel="prefetch" href="/my_blog/assets/js/93.116562ce.js"><link rel="prefetch" href="/my_blog/assets/js/94.e1d0f65b.js"><link rel="prefetch" href="/my_blog/assets/js/95.12005bc8.js"><link rel="prefetch" href="/my_blog/assets/js/96.ea2903f6.js"><link rel="prefetch" href="/my_blog/assets/js/97.80f6af42.js"><link rel="prefetch" href="/my_blog/assets/js/98.11f91f08.js"><link rel="prefetch" href="/my_blog/assets/js/99.6f2d77cd.js">
+    <link rel="stylesheet" href="/my_blog/assets/css/0.styles.ad4f4074.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-2d5f533b><div data-v-2d5f533b><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-2d5f533b data-v-2d5f533b><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-2d5f533b data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>升升狠のBlog</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>yishenlaoban</span>
+            
+          <!---->
+          2022
+        </a></span></div></div> <div class="hide" data-v-2d5f533b><header class="navbar" data-v-2d5f533b><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/my_blog/" class="home-link router-link-active"><img src="/my_blog/logo.png" alt="升升狠のBlog" class="logo"> <span class="site-name">升升狠のBlog</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/my_blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      目录索引
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/my_blog/categories/数据库/" class="nav-link"><i class="iconfont undefined"></i>
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/categories/Linux/" class="nav-link"><i class="iconfont undefined"></i>
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/categories/框架/" class="nav-link"><i class="iconfont undefined"></i>
+  框架
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/categories/java/" class="nav-link"><i class="iconfont undefined"></i>
+  java
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/categories/多线程/" class="nav-link"><i class="iconfont undefined"></i>
+  多线程
+</a></li></ul></div></div><div class="nav-item"><a href="/my_blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签索引
+</a></div><div class="nav-item"><a href="/my_blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/yishenlaoban" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/m0_51302110?spm=1000.2115.3001.5343" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-csdn"></i>
+  CSDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-2d5f533b></div> <aside class="sidebar" data-v-2d5f533b><div class="personal-info-wrapper" data-v-ca798c94 data-v-2d5f533b><img src="/my_blog/avatar.jpg" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    yishenlaoban
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>97</h3> <h6 data-v-ca798c94>Article</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>25</h3> <h6 data-v-ca798c94>Tag</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><a href="/my_blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      目录索引
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/my_blog/categories/数据库/" class="nav-link"><i class="iconfont undefined"></i>
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/categories/Linux/" class="nav-link"><i class="iconfont undefined"></i>
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/categories/框架/" class="nav-link"><i class="iconfont undefined"></i>
+  框架
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/categories/java/" class="nav-link"><i class="iconfont undefined"></i>
+  java
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/categories/多线程/" class="nav-link"><i class="iconfont undefined"></i>
+  多线程
+</a></li></ul></div></div><div class="nav-item"><a href="/my_blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签索引
+</a></div><div class="nav-item"><a href="/my_blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/yishenlaoban" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/m0_51302110?spm=1000.2115.3001.5343" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-csdn"></i>
+  CSDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaWeb</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Java高级</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/my_blog/blogs/java/Java高级/001.String.html" class="sidebar-link">String</a></li><li><a href="/my_blog/blogs/java/Java高级/002.枚举.html" class="sidebar-link">枚举</a></li><li><a href="/my_blog/blogs/java/Java高级/003.注解与反射.html" class="sidebar-link">注解与反射</a></li><li><a href="/my_blog/blogs/java/Java高级/004.集合泛型.html" class="active sidebar-link">集合泛型</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Java基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Java8新特性</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>集合泛型</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>yishenlaoban</span>
+            
+          <!---->
+          2022
+        </a></span></div></div> <div data-v-2d5f533b><main class="page"><div class="page-title" style="display:none;"><h1 class="title">集合泛型</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>yishenlaoban</span></i> <i class="iconfont reco-date" data-v-3b7f5bdf><span data-v-3b7f5bdf>2022-01-15</span></i> <i class="iconfont reco-eye" data-v-3b7f5bdf><span id="/my_blog/blogs/java/Java%E9%AB%98%E7%BA%A7/004.%E9%9B%86%E5%90%88%E6%B3%9B%E5%9E%8B.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-3b7f5bdf><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="iconfont reco-tag tags" data-v-3b7f5bdf><span class="tag-item" data-v-3b7f5bdf>java高级</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h1 id="_5、集合泛型"><a href="#_5、集合泛型" class="header-anchor">#</a> 5、集合泛型</h1> <h2 id="_1-数组与集合"><a href="#_1-数组与集合" class="header-anchor">#</a> 1.数组与集合</h2> <p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115113944740.png" alt="image-20220115113944740"></p> <p>4.集合存储的优点：</p> <p>​    解决数组存储数据方面的弊端。</p> <p><strong>Java 集合可分为Collection 和 Map 两个体系</strong></p> <p>​      Conllection接口：单列数据，定义了存取一组对象的方法的集合</p> <p>​           List: 元素有序，可重复的集合</p> <p>​          Set: 元素无序，不可重复的集合</p> <p>​      Map接口： 双列数据，保存具有映射关系“key-value 对” 的集合</p> <p>​</p> <h2 id="_2-conllection接口"><a href="#_2-conllection接口" class="header-anchor">#</a> 2.Conllection接口</h2> <p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115113955358.png" alt="image-20220115113955358"></p> <p>对应图示</p> <p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115114014254.png" alt="image-20220115114014254"></p> <p>方法的具体使用请看jdk 文档</p> <h2 id="_3-iterator-接口"><a href="#_3-iterator-接口" class="header-anchor">#</a> 3.Iterator 接口</h2> <p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115114024891.png" alt="image-20220115114024891"></p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span>   <span class="token function">test01</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token class-name">Collection</span> coll <span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    coll<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    coll<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">456</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    coll<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">&quot;zcs&quot;</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    coll<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token class-name">Iterator</span> iterator<span class="token operator">=</span>coll<span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>iterator<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>iterator<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//错误写法一</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>iterator<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>iterator<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//错误写法二</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>coll<span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>coll<span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115114039327.png" alt="image-20220115114039327"></p> <p><strong>foreach</strong>的使用</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">public</span>  <span class="token keyword">void</span> test1 <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token class-name">Collection</span> coll <span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    coll<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    coll<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">456</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    coll<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">&quot;zcs&quot;</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    coll<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Object</span> object <span class="token operator">:</span> coll<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//内部还是调用迭代器</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//这里的 object 是重新创建的局部变量，在字符串的数组中使用这种方式实现赋值  是改变不了原来的值</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h2 id="_4、list接口"><a href="#_4、list接口" class="header-anchor">#</a> 4、List接口</h2> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token comment">/**
+ * |----------Collection接口：单例集合，用来存储一个一个的对象
+ *      |------------List接口: 存储有序的，可重复的数据。--&gt;”动态“ 数组，替换原有的数组
+ *           |------ArrayList  作为List的接口的主要实现类，线程不安全，效率高，底层使用Object[]存储
+ *           |------LinkedList 对于频繁的插入，删除操作，使用此类效率比ArrayList高 底层使用的双向链表存储
+ *           |------Vector ：作为List接口的古老实现类：线程安全，效率低
+ *
+ *  1. ArrayList的源码分析：jdk 7 的情况
+ *         ArrayList list=new ArrayList(); //底层创建了长度为10的Object[]数组elementData
+ *         list.add(123);//elementData[0]= new Integer(123);
+ *         ....
+ *         list.add(11);//如果次的添加导致底层elementData数组容量不够，这扩容。
+ *         默认请款下，扩容为原来的1.5倍，同时需要将原来数组中的数据复制到新数组
+ *
+ *         结论：建议使用带参的构造器 （自定义初始容量）
+ *
+ *    2. jdk 8 中的ArrayList 源码
+ *         ArrayList list=new ArrayList(); //底层Object[] elementData初始化为{},并没有创建一个长度为 10 的数组
+ *         list.add(123);//第一次调用时，底层才创建一个长度为10的数组，并添加123;
+ *         后续的一样
+ *
+ *  面试题：ArrayList,ListKedList,Vector
+ *    同：三种类都实现了List接口，存储数据的特点相同：存储有序的，可重复的数据
+ *    不同：见最上
+ *
+ *   2.3 小结：jdk7中的ArryList 的对象创建类似于单例的饿汉式，
+ *   而jdk8中的ArrayList的对象的创建类似与单例的懒汉式，延迟了数组的创建，节省内存
+ *
+ *   3. LinkedList的源码分析：
+ *        LinkedList list =new LinkedList()
+ *     内部声明了Node类型的first 和 last 属性 默认中为null;
+ *     list.add(123);//将123封装到Node中，创建Node对象
+ *
+ *     其中，node定义为
+ *       private static class Node&lt;E&gt; {
+ *         E item;
+ *         Node&lt;E&gt; next;
+ *         Node&lt;E&gt; prev;
+ *
+ *         Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) {
+ *             this.item = element;
+ *             this.next = next;
+ *             this.prev = prev;
+ *         }
+ *     }
+ * */</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br></div></div><p><strong>Arraylist常用方法</strong></p> <p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115114054289.png" alt="image-20220115114054289"></p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token class-name">List</span> list<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">456</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;AA&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">&quot;Tom&quot;</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">456</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//void add(int index,object ele)：从index位置插入元素</span>
+    list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">&quot;bb&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//boolean addAll(int index,Collection eles) ：从index位置开始将eles中所有的元素添加进来</span>
+    <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> integers <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">,</span> <span class="token number">456</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>integers<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//get(int index) ：获取当前下标的元素</span>
+    <span class="token class-name">Object</span> o <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//indexOf(object obj) 获取当前元素首次出现的下标</span>
+    <span class="token comment">//lastIndexOd(Object obj) 获取当前元素最后一次出现的下标</span>
+
+    <span class="token comment">//remove(int index) 移除当前下标的元素</span>
+    <span class="token comment">//set(int index,Object obj) 当前下标的元素被obj 替代</span>
+    <span class="token comment">//List subList(int starIndex,int endIndex):获取 startIndex --endIndex子集合</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><p>面试题：</p> <p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115114105768.png" alt="image-20220115114105768"></p> <h2 id="_5、set接口"><a href="#_5、set接口" class="header-anchor">#</a> 5、set接口</h2> <p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115114118946.png" alt="image-20220115114118946"></p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token comment">/**
+ * Author : zcs
+ * Data :  2021/8/30 20:02
+ *
+ * 1. Set接口的框架：
+ *      |----------Collection接口：单列集合，用来存储一个一个的对象
+ *           |--------Set接口：存储无序的、不可重复的数据 ---&gt;高中讲的”集合“
+ *               |-------HashSet  : 作为Set接口的主要实现类；线程不安全；可以存储NUll值
+ *                   |-------LinkedHashSet：  作为Hashset的子类，遍历其内部数据时，可以按照添加的顺序遍历
+ *               |-------TreeSet：（可以按照添加元素对象指定的属性排序） 使用红黑树 存储，
+ 
+ *                                要求添加数据，要求的是相同类的对象
+                    比较方法，添加类implements Comparable接口
+ *  1.Set接口中没有额外定义新的方法，使用的都是Collection 中声明过的的方法
+ *
+ */</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SetTest</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">/**
+     * 一、 Set: 无序 不可重复
+     *
+     * 1.无序性 :不等于随机性，存储的数据在底层数组中并非按照数组索引的顺序添加，而是根据数据的哈希值
+     *
+     * 2.不可重复性：保证添加的元素按照equals判断时，不能返回true。及只能添加一个
+     *   注意在添加我们自定义的对象中我们必须 重写equals 和 hashCode 方法，底层是通过这两进行判断的
+     *
+     *   二、添加元素的过程：以HashSet为例
+     *       通过hash函数计算元素的hashCode进行分配索引位置，每个元素添加前都要计算出hash值
+     *       如果hash值一样，值不一样，当前位置，就用链表存储多个值
+     *
+     *       哈希值是通过算法得到的
+     *       如果hash值不一样·那么内容一定不一样，不需要一个一个对比了
+     *       如果哈希值一样，里面的内容可能一样或者不一样，所以再调用equals
+     *
+     *
+     * */</span>
+     <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+         <span class="token class-name">Set</span> set<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">456</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;AA&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">&quot;tom&quot;</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">129</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>set<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br></div></div><p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115114132735.png" alt="image-20220115114132735"></p> <p>​    <strong>LinkedHashSet</strong></p> <p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115114152417.png" alt="image-20220115114152417"></p> <p><img src="C:%5CUsers%5C16843%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1630333362583.png" alt="1630333362583"></p> <p>优点：频繁的遍历操作，效率高</p> <p><strong>TreeSet</strong></p> <p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115114206231.png" alt="image-20220115114206231"></p> <p>自然排序中，比较两个对象是否相同的标准为：compareTo()返回0.不再是equals</p> <h2 id="每天一考"><a href="#每天一考" class="header-anchor">#</a> 每天一考</h2> <p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115114217142.png" alt="image-20220115114217142"></p> <p><img src="C:%5CUsers%5C16843%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1630377652295.png" alt="1630377652295"></p> <p>​</p> <p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115114228982.png" alt="image-20220115114228982"></p> <p>这个题关注的是Set 的hashCode 地址，再看equal方法</p> <p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115114242657.png" alt="image-20220115114242657"></p> <p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115114254413.png" alt="image-20220115114254413"></p> <h2 id="_6、map"><a href="#_6、map" class="header-anchor">#</a> 6、map</h2> <p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115114303318.png" alt="image-20220115114303318"></p> <p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115114315647.png" alt="image-20220115114315647"></p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>zcs<span class="token punctuation">.</span>conllection</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span></span><span class="token class-name">Test</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * Author : zcs
+ * Data :  2021/8/31 20:45
+ *
+ * 一、实现类
+ * |--------Map:双列数据，存储key-value 对的数据，----类似于高中的函数：y = f(x)
+ *        |--------HashMap: 作为Map的主要实现类；线程不安全，效率高；存储null的key和value
+ *             |--------LinkedHashMap:  保证在遍历map元素是可以按照添加的顺序实现遍历；
+ *                      原因：在原有的HashMap底层结构基础上，添加一对指针，指向前一个和后一个元素
+ *        |--------TreeMap: 保证按照添加key-value对进行排序，实现排序遍历,此时考虑key的自然排序或定制排序
+ *                         底层使用红黑树
+ *        |-------Hashtable :作为古老的实现类;线程安全的，效率低；不能存储null的key和value
+ *             |--------Properties：常用来处理配置文件。key和value都是String类型
+ *
+ *    HashMap的底层： 数组+链表 （jdk7及之前）
+ *                   数组+链表+红黑树（jdk8）
+ *
+ *
+ * 面试题：
+ *   1.HashMap 的底层实现原理？
+ *   2.HashMap 和 Hashtable的异同？
+ *
+ *  二、Map结构的理解
+ *     Map中的key:无序的、不可重复的，使用Set存储所有的key ---- &gt; key 所在的类要重写equals方法和hashCode()
+ *     Map中的value：无序的，可以重复的，使用Collection存储所有的value ------&gt;value 重写equals
+ *     一个键值对：key-value构成一个Entry对象
+ *
+ *   1.HashMap 的底层实现原理？（jdk 7为例）
+ *        HashMap map=bew HashMao();
+ *          在实例化以后，底层创建了一个长度为16的一位数组Entry[] table
+ *          map.put(key1,value1):
+ *           首先，调用key所在类的hashCode方法计算哈希值， 此哈希值记过某种算法计算，得到Entry数组中的皴法位置
+ *           如果此位置为空，这直接添加，如果有值，比较哈希值，不同则添加，如果哈希值相同，这进行key1的equals方法比较
+ *             equals 返回false:此时添加成功
+ *                     返回为true:value替换掉
+ *   jdk 8 相较于jdk 7底层实现方面的不同：
+ *        1. new hashMap():底层没有创建一个长度为16的数组
+ *        2. jdk 8底层的数组是 Node[] 而非Entry[]
+ *        3. 首次调用put方法时底层创建长度为16的数组
+ *        4. jdk7顶层只用 数组+链表，  jdk8 还用红黑树
+ *           当数组的某一个索引位置上的元素以链表的形式存在的数据个数 &gt; 8 且当前数组的长度 &gt; 64 时；
+ *           此时此索引位置上的所有数据改为使用红黑树存储。
+ *
+ *
+ *
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MapTest</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">/**
+     * Map 的常用方法运用*/</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+         <span class="token class-name">Map</span> map <span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token comment">//添加</span>
+         map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;AA&quot;</span><span class="token punctuation">,</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;BB&quot;</span><span class="token punctuation">,</span><span class="token number">2131</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token comment">//修改</span>
+         map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;AA&quot;</span><span class="token punctuation">,</span><span class="token number">87</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token class-name">Map</span> map1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         map1<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;CC&quot;</span><span class="token punctuation">,</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         map1<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;DD&quot;</span><span class="token punctuation">,</span><span class="token number">32342</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token comment">//添加map</span>
+         map<span class="token punctuation">.</span><span class="token function">putAll</span><span class="token punctuation">(</span>map1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token comment">//remove () 移除指定key的map 返回值为移除值的value</span>
+          <span class="token class-name">Object</span> value <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">&quot;CC&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token comment">//clear 清空map所有的值</span>
+          map<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 与map==null 操作不同，map还在，只是里面的值为null</span>
+
+          <span class="token comment">// get(key) 获取指定key的value</span>
+          <span class="token comment">// containsKey() 是否包含key</span>
+          <span class="token comment">// containsValue() 是否包含指定的value</span>
+          <span class="token comment">// size() ：返回map中key-value 对的个数</span>
+          <span class="token comment">// equals(obj)</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//遍历 map 的方法</span>
+    <span class="token comment">/**
+     * Set keySet():返回所有key构成的Set集合
+     * Collection value() 返回所有value构成的Collection集合
+     * Set  entrySet() 返回所有key-value对构成的Set集合
+     * */</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">Map</span> map <span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;AA&quot;</span><span class="token punctuation">,</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;BB&quot;</span><span class="token punctuation">,</span><span class="token number">2131</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;CC&quot;</span><span class="token punctuation">,</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//遍历所有的key集</span>
+        <span class="token class-name">Set</span> set <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">keySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Iterator</span> iterator <span class="token operator">=</span> set<span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>iterator<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>iterator<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">//遍历所有的value集</span>
+        <span class="token class-name">Collection</span> values <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Object</span> value <span class="token operator">:</span> values<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">//遍历所有的key-value</span>
+        <span class="token comment">//entry  getKey()  和 getValue()</span>
+        <span class="token class-name">Set</span> entry<span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">entrySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Iterator</span> iterator1 <span class="token operator">=</span> entry<span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>iterator1<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>iterator1<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br></div></div><p><strong>TreeSet</strong></p> <p>自定义排序</p> <p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115114331143.png" alt="image-20220115114331143"></p> <p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115114340967.png" alt="image-20220115114340967"></p> <h2 id="_7、conllections工具类"><a href="#_7、conllections工具类" class="header-anchor">#</a> 7、Conllections工具类</h2> <p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115114356448.png" alt="image-20220115114356448"></p> <p><img src="https://gitee.com/yishenlaoban/git-typore/raw/master/image_my/image-20220115114407715.png" alt="image-20220115114407715"></p> <h2 id="_8、泛型"><a href="#_8、泛型" class="header-anchor">#</a> 8、泛型</h2> <p><strong>对此总结成一句话：泛型类型在逻辑上看以看成是多个不同的类型，实际上都是相同的基本类型。</strong></p></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">2/28/2022, 6:57:34 PM</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><canvas id="vuepress-canvas-cursor"></canvas><canvas id="vuepress-canvas-ribbon"></canvas><APlayer audio="" fixed="true" mini="true" autoplay="autoplay" theme="#f9bcdd" loop="loop" order="random" preload="auto" volume="0.1" mutex="true" lrc-type="3" list-max-height="250" storage-name="vuepress-plugin-meting" id="aplayer-fixed"></APlayer></div></div>
+    <script src="/my_blog/assets/js/app.d66f9911.js" defer></script><script src="/my_blog/assets/js/3.3346af26.js" defer></script><script src="/my_blog/assets/js/1.d09d735b.js" defer></script><script src="/my_blog/assets/js/79.7cc4f1ee.js" defer></script>
+  </body>
+</html>
